@@ -120,14 +120,21 @@
   <!-- Lightbox Modal -->
   <div id="lightbox" class="lightbox">
     <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <button type="button" class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
     <figure class="lightbox-content">
       <img id="lightbox-img" src="" alt="" />
       <figcaption id="lightbox-caption"></figcaption>
     </figure>
+    <button type="button" class="lightbox-next" aria-label="Next photo">&#8250;</button>
   </div>
 
   <script>
-    function openLightbox(card) {
+    let photoCards = [];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const card = photoCards[currentIndex];
       const img = card.querySelector('img');
       const caption = card.querySelector('figcaption');
       document.getElementById('lightbox-img').src = img.src;
@@ -143,23 +150,41 @@
       document.body.style.overflow = '';
     }
 
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + photoCards.length) % photoCards.length;
+      openLightbox(currentIndex);
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % photoCards.length;
+      openLightbox(currentIndex);
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       const lightbox = document.getElementById('lightbox');
       const closeBtn = lightbox.querySelector('.lightbox-close');
+      const prevBtn = lightbox.querySelector('.lightbox-prev');
+      const nextBtn = lightbox.querySelector('.lightbox-next');
       const lightboxContent = lightbox.querySelector('.lightbox-content');
 
-      document.querySelectorAll('.photo-card').forEach(function (card) {
-        card.addEventListener('click', function () { openLightbox(card); });
+      photoCards = Array.from(document.querySelectorAll('.photo-card'));
+
+      photoCards.forEach(function (card, i) {
+        card.addEventListener('click', function () { openLightbox(i); });
         card.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(card); }
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
         });
       });
 
       closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', function (e) { e.stopPropagation(); showPrev(); });
+      nextBtn.addEventListener('click', function (e) { e.stopPropagation(); showNext(); });
       lightbox.addEventListener('click', closeLightbox);
       lightboxContent.addEventListener('click', function (e) { e.stopPropagation(); });
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) showPrev();
+        if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) showNext();
       });
     });
   </script>

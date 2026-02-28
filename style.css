@@ -329,3 +329,36 @@ footer {
 .lightbox-close:hover {
   opacity: 1;
 }
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s, background 0.2s;
+  z-index: 1001;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  user-select: none;
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+}
