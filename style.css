@@ -436,3 +436,160 @@ footer {
   opacity: 1;
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* =====================
+   Hamburger Toggle Button
+   ===================== */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =====================
+   Mobile Responsive
+   ===================== */
+
+@media (max-width: 640px) {
+  /* Nav */
+  nav {
+    position: relative;
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0 0.75rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  nav ul.nav-open {
+    display: flex;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.65rem 1rem;
+  }
+
+  /* Intro overlay */
+  #intro-overlay .intro-name {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  #intro-overlay .intro-tagline {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* Hero */
+  #hero {
+    padding: 3.5rem 1.25rem;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero .subtitle {
+    font-size: 1.05rem;
+  }
+
+  /* Sections */
+  section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Skills – ensure at least 2 columns */
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+
+  /* Projects – single column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Photos – single column */
+  .photos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Lightbox: larger touch targets */
+  .lightbox-close {
+    font-size: 2rem;
+    top: 0.5rem;
+    right: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 2rem;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .lightbox-prev {
+    left: 0.25rem;
+  }
+
+  .lightbox-next {
+    right: 0.25rem;
+  }
+
+  /* Contact list – allow wrapping on tiny screens */
+  .contact-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    overflow-wrap: break-word;
+  }
+
+  .contact-list li span {
+    margin-right: 0;
+  }
+}
