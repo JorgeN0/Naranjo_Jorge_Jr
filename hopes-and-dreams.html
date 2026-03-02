@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Hopes &amp; Dreams – Jorge Naranjo Jr</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#photos">Photos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section id="hopes-hero" style="background:linear-gradient(135deg,#1e293b 0%,#2563eb 100%);color:white;text-align:center;padding:6rem 2rem;">
+    <h1>My Hopes &amp; Dreams</h1>
+    <p class="subtitle">A look into my aspirations for the future</p>
+    <div class="hero-buttons" style="margin-top:1.5rem;">
+      <a href="index.html#about" class="btn btn-outline">&larr; Back to About Me</a>
+    </div>
+  </section>
+
+  <!-- Hopes & Dreams Content -->
+  <section id="hopes-content" style="background-color:#eff6ff;">
+    <div class="section-content">
+      <h2>Looking Ahead</h2>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Career Aspirations</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          My ultimate career goal is to work at the forefront of Artificial Intelligence research and development.
+          I aspire to contribute to projects that have a meaningful, positive impact on society — whether that means
+          building smarter healthcare tools, improving accessibility through technology, or pushing the boundaries of
+          what AI can achieve. I dream of one day leading a team of engineers and researchers, fostering an environment
+          where creativity and rigorous problem-solving go hand in hand.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Academic Goals</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          After completing my Bachelor of Science at the University of South Carolina, I hope to pursue a graduate
+          degree — ideally a Master's or Ph.D. — in Computer Science or Artificial Intelligence. I want to deepen
+          my understanding of machine learning, neural networks, and the mathematical foundations that power modern AI.
+          I believe that strong academic roots will give me the foundation to tackle the hardest problems in the field.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Personal Dreams</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          Beyond my professional ambitions, I hope to grow as a person — to travel, experience new cultures, and
+          continually broaden my perspective. I dream of giving back to my community by mentoring the next generation
+          of students who, like me, are eager to break into the tech world. Most of all, I hope to live a life that
+          balances passion for technology with genuine human connection and purpose.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Making a Difference</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          At the heart of all my hopes and dreams is a desire to make a difference. I want to build technology that
+          is ethical, inclusive, and accessible to everyone. I believe that computer science and mathematics are
+          powerful tools for solving the world's greatest challenges, and I am committed to using those tools
+          responsibly and creatively throughout my career.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Jorge Naranjo Jr. All rights reserved.</p>
+  </footer>
+
+  <!-- Hamburger navigation toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('nav-menu');
+      toggle.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          menu.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+  </script>
+
+  <!-- Section Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sections = document.querySelectorAll('section, footer');
+      sections.forEach(function (el) { el.classList.add('section-hidden'); });
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      sections.forEach(function (el) { observer.observe(el); });
+    });
+  </script>
+
+</body>
+</html>
