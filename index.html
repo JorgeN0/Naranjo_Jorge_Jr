@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jorge Naranjo Jr – Personal Website</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    if (sessionStorage.getItem('introSeen')) {
+      document.documentElement.classList.add('intro-skip');
+    } else {
+      window.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('intro-overlay').addEventListener('animationend', function () {
+          sessionStorage.setItem('introSeen', '1');
+        }, { once: true });
+      });
+    }
+  </script>
 </head>
 <body>
 
