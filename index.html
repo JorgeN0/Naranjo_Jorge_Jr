@@ -287,6 +287,17 @@ I am adaptable, detail-oriented, and committed to delivering high-quality result
       }, { threshold: 0.12 });
 
       sections.forEach(function (el) { observer.observe(el); });
+
+      // If the page was loaded with a hash (e.g. index.html#projects),
+      // immediately reveal that section so its content is always visible.
+      if (window.location.hash) {
+        var hashTarget = document.getElementById(window.location.hash.slice(1));
+        if (hashTarget) {
+          hashTarget.classList.remove('section-hidden');
+          hashTarget.classList.add('section-visible');
+          observer.unobserve(hashTarget);
+        }
+      }
     });
   </script>
 
