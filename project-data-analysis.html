@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analysis Script – Jorge Naranjo Jr</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#photos">Photos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section id="project-hero" style="background:linear-gradient(135deg,#1e293b 0%,#2563eb 100%);color:white;text-align:center;padding:6rem 2rem;">
+    <h1>Data Analysis Script</h1>
+    <p class="subtitle">A Python script for CSV processing and visualization</p>
+    <div class="hero-buttons" style="margin-top:1.5rem;">
+      <a href="index.html#projects" class="btn btn-outline">&larr; Back to Projects</a>
+    </div>
+  </section>
+
+  <!-- Project Details -->
+  <section id="project-content" style="background-color:#faf5ff;">
+    <div class="section-content">
+      <h2>Project Overview</h2>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">What It Is</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          The Data Analysis Script is a Python-based tool that reads structured data from CSV files,
+          processes it, and generates meaningful summary statistics along with visualizations. It is
+          designed to turn raw tabular data into actionable insights quickly and efficiently.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">What It Achieves</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          The script automates the tedious process of manually sifting through spreadsheet data.
+          It computes summary statistics such as mean, median, and standard deviation, identifies
+          trends, and produces clear charts and graphs that make patterns immediately visible.
+          This project showcases practical data science skills and the ability to apply Python
+          to real-world analytical tasks.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Technologies Used</h3>
+        <div class="project-tags" style="margin-top:0.5rem;">
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Key Features</h3>
+        <ul style="font-size:1.05rem;color:#475569;padding-left:1.5rem;line-height:2;">
+          <li>Reads and parses CSV files of any structure</li>
+          <li>Computes descriptive statistics (mean, median, standard deviation, min/max)</li>
+          <li>Generates visualizations such as bar charts and histograms</li>
+          <li>Outputs a concise summary report for quick interpretation</li>
+          <li>Demonstrates applied data science and scripting skills in Python</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Jorge Naranjo Jr. All rights reserved.</p>
+  </footer>
+
+  <!-- Hamburger navigation toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('nav-menu');
+      toggle.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          menu.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+  </script>
+
+  <!-- Section Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sections = document.querySelectorAll('section, footer');
+      sections.forEach(function (el) { el.classList.add('section-hidden'); });
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      sections.forEach(function (el) { observer.observe(el); });
+    });
+  </script>
+
+</body>
+</html>

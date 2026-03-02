@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do App – Jorge Naranjo Jr</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#photos">Photos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section id="project-hero" style="background:linear-gradient(135deg,#1e293b 0%,#2563eb 100%);color:white;text-align:center;padding:6rem 2rem;">
+    <h1>To-Do App</h1>
+    <p class="subtitle">A lightweight task management application</p>
+    <div class="hero-buttons" style="margin-top:1.5rem;">
+      <a href="index.html#projects" class="btn btn-outline">&larr; Back to Projects</a>
+    </div>
+  </section>
+
+  <!-- Project Details -->
+  <section id="project-content" style="background-color:#f0fdf4;">
+    <div class="section-content">
+      <h2>Project Overview</h2>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">What It Is</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          The To-Do App is a browser-based task management tool built with vanilla JavaScript, HTML,
+          and CSS. It allows users to create, track, and remove tasks through a clean and intuitive
+          interface — no frameworks, no libraries, just plain web technologies working together.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">What It Achieves</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          The app helps users stay organized by providing a straightforward way to manage their daily
+          tasks. Users can add new tasks, mark them as complete, and delete them when finished. The
+          project demonstrates core JavaScript skills including DOM manipulation, event handling, and
+          dynamic UI updates — all essential concepts in front-end development.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Technologies Used</h3>
+        <div class="project-tags" style="margin-top:0.5rem;">
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Key Features</h3>
+        <ul style="font-size:1.05rem;color:#475569;padding-left:1.5rem;line-height:2;">
+          <li>Add new tasks with a simple input field</li>
+          <li>Mark tasks as complete with a single click</li>
+          <li>Delete tasks to keep the list clean and current</li>
+          <li>Dynamic DOM updates without page reloads</li>
+          <li>Lightweight and fast — no external dependencies</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Jorge Naranjo Jr. All rights reserved.</p>
+  </footer>
+
+  <!-- Hamburger navigation toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('nav-menu');
+      toggle.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          menu.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+  </script>
+
+  <!-- Section Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sections = document.querySelectorAll('section, footer');
+      sections.forEach(function (el) { el.classList.add('section-hidden'); });
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      sections.forEach(function (el) { observer.observe(el); });
+    });
+  </script>
+
+</body>
+</html>

@@ -248,6 +248,35 @@ section h2 {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
+.project-card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.project-card-link:hover {
+  text-decoration: none;
+}
+
+.project-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 0.375rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  align-self: flex-start;
+  transition: background-color 0.2s;
+}
+
+.project-card-link:hover .project-btn {
+  background-color: #1d4ed8;
+}
+
 .project-card h3 {
   font-size: 1.1rem;
   color: #1e293b;
