@@ -57,6 +57,10 @@
   to { opacity: 0; visibility: hidden; }
 }
 
+.intro-skip #intro-overlay {
+  display: none;
+}
+
 /* =====================
    Section Reveal Animations
    ===================== */
