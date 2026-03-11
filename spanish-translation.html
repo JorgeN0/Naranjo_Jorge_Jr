@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spanish Translation – Jorge Naranjo Jr</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#translation">Translation</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#photos">Photos</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section id="translation-hero" style="background:linear-gradient(135deg,#1e293b 0%,#2563eb 100%);color:white;text-align:center;padding:6rem 2rem;">
+    <h1>Spanish Translation</h1>
+    <p class="subtitle">Professional English &harr; Spanish translation since 2024</p>
+    <div class="hero-buttons" style="margin-top:1.5rem;">
+      <a href="index.html#translation" class="btn btn-outline">&larr; Back to Translation</a>
+    </div>
+  </section>
+
+  <!-- Translation Content -->
+  <section id="translation-content" style="background-color:#fef9c3;">
+    <div class="section-content">
+      <h2>My Translation Work</h2>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Background</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          I have been providing professional Spanish translation services since 2024. As a fluent
+          bilingual speaker of both English and Spanish, I offer accurate, culturally sensitive
+          translations that meet the specific requirements of specialized industries. My work spans
+          technical and professional documents, with a strong emphasis on precision and clarity.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Physical Therapy Translation</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          A significant portion of my translation work is within the physical therapy field. I have
+          translated a variety of documents including:
+        </p>
+        <ul style="font-size:1.05rem;color:#475569;padding-left:1.5rem;line-height:2;margin-top:0.75rem;">
+          <li>Patient intake forms and medical history questionnaires</li>
+          <li>Exercise instruction sheets and home exercise programs</li>
+          <li>Post-operative rehabilitation protocols</li>
+          <li>Progress notes and clinical documentation</li>
+          <li>Patient education materials on injury prevention and recovery</li>
+        </ul>
+        <p style="font-size:1.05rem;color:#475569;margin-top:0.75rem;">
+          These translations help healthcare providers communicate effectively with Spanish-speaking
+          patients, ensuring they fully understand their treatment plans and exercises.
+        </p>
+      </div>
+
+      <div style="margin-bottom:2.5rem;">
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Legal Translation</h3>
+        <p style="font-size:1.05rem;color:#475569;">
+          I have also taken on various legal translation assignments, handling documents that require
+          strict attention to terminology and formatting. My legal translation work includes:
+        </p>
+        <ul style="font-size:1.05rem;color:#475569;padding-left:1.5rem;line-height:2;margin-top:0.75rem;">
+          <li>Contracts and agreements</li>
+          <li>Affidavits and sworn statements</li>
+          <li>Court documents and legal correspondence</li>
+          <li>Immigration forms and supporting documentation</li>
+          <li>Notices and official communications</li>
+        </ul>
+        <p style="font-size:1.05rem;color:#475569;margin-top:0.75rem;">
+          Accuracy and confidentiality are paramount in legal translation, and I approach every
+          assignment with the care and professionalism these documents demand.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.25rem;color:#1e293b;margin-bottom:0.75rem;">Languages &amp; Skills</h3>
+        <div class="project-tags" style="margin-top:0.5rem;">
+          <span class="tag">English</span>
+          <span class="tag">Spanish</span>
+          <span class="tag">Medical Terminology</span>
+          <span class="tag">Legal Terminology</span>
+          <span class="tag">Document Formatting</span>
+          <span class="tag">Confidentiality</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Jorge Naranjo Jr. All rights reserved.</p>
+  </footer>
+
+  <!-- Hamburger navigation toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('nav-menu');
+      toggle.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          menu.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+  </script>
+
+  <!-- Section Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sections = document.querySelectorAll('section, footer');
+      sections.forEach(function (el) { el.classList.add('section-hidden'); });
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      sections.forEach(function (el) { observer.observe(el); });
+    });
+  </script>
+
+</body>
+</html>
